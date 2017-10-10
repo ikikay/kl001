@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-    <?php include('./includes/head.php'); ?>
+    <?php include('../views/head.php'); ?>
 
-    <?php include('./includes/navbar.php'); ?>
+    <?php include('../views/navbar.php'); ?>
+    
+    <?php include('../views/check_connexion.php'); ?>
 
-    <?php include('./includes/check_connexion.php'); ?>
-
-    <?php include('./includes/ado_connect.php'); ?>
+    <?php include('../pdo/pdo.php'); ?>
 
     <!-- presentation -->
     <section id="presentation">
@@ -94,9 +94,9 @@
         </div>
     </section>
 
-    <?php include('./includes/footer.php'); ?>
+    <?php include('../views/footer.php'); ?>
 
-    <?php include('./includes/scripts.php'); ?>
+    <?php include('../views/scripts.php'); ?>
 
 </body>
 
