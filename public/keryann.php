@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-    <?php include('./includes/head.php'); ?>
+    <?php include('../views/head.php'); ?>
 
-    <?php include('./includes/navbar.php'); ?>
+    <?php include('../views/navbar.php'); ?>
 
-    <?php include('./includes/check_connexion.php'); ?>
+    <?php include('../views/check_connexion.php'); ?>
 
-    <?php include('./includes/ado_connect.php'); ?>
+    <?php include('../views/ado_connect.php'); ?>
 
     <!-- Services -->
     <section id="presentation">
