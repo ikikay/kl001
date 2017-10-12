@@ -1,11 +1,11 @@
 <?php
 
-function createHobbie($titreHobbie) {
+function createFormation($titreFormation) {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('INSERT INTO hobbie (titre_hobbie) VALUES (:titreHobbie)');
-        $requete->bindValue(':titreHobbie', $titreHobbie, PDO::PARAM_STR);
+        $requete = $connection->prepare('INSERT INTO formation (titre_formation) VALUES (:titreFormation)');
+        $requete->bindValue(':titreFormation', $titreFormation, PDO::PARAM_STR);
         $requete->execute();
 
         $connection = null;
@@ -15,11 +15,11 @@ function createHobbie($titreHobbie) {
     }
 }
 
-function readAllHobbie() {
+function readAllFormation() {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('SELECT * FROM hobbie WHERE 1');
+        $requete = $connection->prepare('SELECT * FROM formation WHERE 1');
         $requete->execute();
         $resultat = $requete->fetchAll();
 
@@ -30,12 +30,12 @@ function readAllHobbie() {
     }
 }
 
-function readOneHobbie($idHobbie) {
+function readOneFormation($idFormation) {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('SELECT titre_hobbie FROM hobbie WHERE id_hobbie = :idHobbie');
-        $requete->bindValue(':idHobbie', $idHobbie, PDO::PARAM_STR);
+        $requete = $connection->prepare('SELECT titre_formation FROM formation WHERE id_formation = :idFormation');
+        $requete->bindValue(':idFormation', $idFormation, PDO::PARAM_STR);
         $requete->execute();
 
         $resultat = $requete->fetch();
@@ -47,12 +47,12 @@ function readOneHobbie($idHobbie) {
     }
 }
 
-function updateHobbie($idHobbie, $newName) {
+function updateFormation($idFormation, $newName) {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('UPDATE hobbie SET titre_hobbie = :newName WHERE id_hobbie = :idHobbie');
-        $requete->bindValue(':idHobbie', $idHobbie, PDO::PARAM_STR);
+        $requete = $connection->prepare('UPDATE formation SET titre_formation = :newName WHERE id_formation = :idFormation');
+        $requete->bindValue(':idFormation', $idFormation, PDO::PARAM_STR);
         $requete->bindValue(':newName', $newName, PDO::PARAM_STR);
         $requete->execute();
 
@@ -63,12 +63,12 @@ function updateHobbie($idHobbie, $newName) {
     }
 }
 
-function deleteHobbie($titreHobbie) {
+function deleteFormation($titreFormation) {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('DELETE FROM hobbie WHERE titre_hobbie = :titreHobbie');
-        $requete->bindValue(':titreHobbie', $titreHobbie, PDO::PARAM_STR);
+        $requete = $connection->prepare('DELETE FROM formation WHERE titre_formation = :titreFormation');
+        $requete->bindValue(':titreFormation', $titreFormation, PDO::PARAM_STR);
         $requete->execute();
 
         $connection = null;

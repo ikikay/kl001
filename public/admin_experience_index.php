@@ -19,8 +19,8 @@
         ?>
 
         <?php
-        require '../pdo/pdo_admin_hobbie.php';
-        $lesHobbies = readAllHobbie();
+        require '../pdo/pdo_admin_experience.php';
+        $lesExperiences = readAllExperience();
         ?>
 
         <!-- Main content -->
@@ -28,7 +28,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <form action="admin_hobbie_create.php" method="get">
+                        <form action="admin_experience_create.php" method="get">
                             <button type="submit" class="btn btn-success btn-lg btn-block">Ajouter</button>
                         </form>
                         <!-- /.box-header -->
@@ -49,32 +49,32 @@
                             <table class="table table-bordered">
                                 <thead class="thead-inverse">
                                     <tr> 
-                                        <th class="col-md-2">Nom du Hobbie</th>
+                                        <th class="col-md-2">Nom du Experience</th>
                                         <th class="col-md-10" >action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($lesHobbies as $unHobbie) {
+                                    foreach ($lesExperiences as $unExperience) {
 
                                         echo <<<END
                                     <tr>  
-                                        <td id="td{$unHobbie["id_hobbie"]}">
-                                        {$unHobbie["titre_hobbie"]}
+                                        <td id="td{$unExperience["id_experience"]}">
+                                        {$unExperience["titre_experience"]}
                                         </td>
 
                                         <td> <!-- TODO : ICI la class fait de la merde, à voir plus tard ! ... -->
                                             <div class="row">
                                                 <div class="col-md-1">
-                                                    <form action="admin_hobbie_edit.php" method="get">
-                                                        <input type="hidden" value="{$unHobbie["id_hobbie"]}" name="id_hobbie">
+                                                    <form action="admin_experience_edit.php" method="get">
+                                                        <input type="hidden" value="{$unExperience["id_experience"]}" name="id_experience">
                                                         <button type="submit" class="btn btn-primary btn-circle"><i class="fa fa-pencil"></i></button>
                                                     </form>
                                                 </div>
                                                 <br><br>
                                                 <div class="col-md-1">
-                                                    <form action="admin_hobbie_edit.php" method="get">
-                                                        <input type="hidden" value="{$unHobbie["id_hobbie"]}" name="destroy"/> <!-- TODO : faire la fonction delete -->
+                                                    <form action="admin_experience_edit.php" method="get">
+                                                        <input type="hidden" value="{$unExperience["id_experience"]}" name="destroy"/> <!-- TODO : faire la fonction delete -->
                                                         <button type="submit" class="btn btn-danger btn-circle jsDeleteButton"><i class="fa fa-times"></i></button>
                                                     </form>
                                                 </div>

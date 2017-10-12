@@ -1,11 +1,11 @@
 <?php
 
-function createHobbie($titreHobbie) {
+function createExperience($titreExperience) {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('INSERT INTO hobbie (titre_hobbie) VALUES (:titreHobbie)');
-        $requete->bindValue(':titreHobbie', $titreHobbie, PDO::PARAM_STR);
+        $requete = $connection->prepare('INSERT INTO experience (titre_experience) VALUES (:titreExperience)');
+        $requete->bindValue(':titreExperience', $titreExperience, PDO::PARAM_STR);
         $requete->execute();
 
         $connection = null;
@@ -15,11 +15,11 @@ function createHobbie($titreHobbie) {
     }
 }
 
-function readAllHobbie() {
+function readAllExperience() {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('SELECT * FROM hobbie WHERE 1');
+        $requete = $connection->prepare('SELECT * FROM experience WHERE 1');
         $requete->execute();
         $resultat = $requete->fetchAll();
 
@@ -30,12 +30,12 @@ function readAllHobbie() {
     }
 }
 
-function readOneHobbie($idHobbie) {
+function readOneExperience($idExperience) {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('SELECT titre_hobbie FROM hobbie WHERE id_hobbie = :idHobbie');
-        $requete->bindValue(':idHobbie', $idHobbie, PDO::PARAM_STR);
+        $requete = $connection->prepare('SELECT titre_experience FROM experience WHERE id_experience = :idExperience');
+        $requete->bindValue(':idExperience', $idExperience, PDO::PARAM_STR);
         $requete->execute();
 
         $resultat = $requete->fetch();
@@ -47,12 +47,12 @@ function readOneHobbie($idHobbie) {
     }
 }
 
-function updateHobbie($idHobbie, $newName) {
+function updateExperience($idExperience, $newName) {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('UPDATE hobbie SET titre_hobbie = :newName WHERE id_hobbie = :idHobbie');
-        $requete->bindValue(':idHobbie', $idHobbie, PDO::PARAM_STR);
+        $requete = $connection->prepare('UPDATE experience SET titre_experience = :newName WHERE id_experience = :idExperience');
+        $requete->bindValue(':idExperience', $idExperience, PDO::PARAM_STR);
         $requete->bindValue(':newName', $newName, PDO::PARAM_STR);
         $requete->execute();
 
@@ -63,12 +63,12 @@ function updateHobbie($idHobbie, $newName) {
     }
 }
 
-function deleteHobbie($titreHobbie) {
+function deleteExperience($titreExperience) {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=kl001;charset=utf8", 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $requete = $connection->prepare('DELETE FROM hobbie WHERE titre_hobbie = :titreHobbie');
-        $requete->bindValue(':titreHobbie', $titreHobbie, PDO::PARAM_STR);
+        $requete = $connection->prepare('DELETE FROM experience WHERE titre_experience = :titreExperience');
+        $requete->bindValue(':titreExperience', $titreExperience, PDO::PARAM_STR);
         $requete->execute();
 
         $connection = null;
