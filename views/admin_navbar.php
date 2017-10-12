@@ -1,5 +1,14 @@
 <!-- Main Header -->
 <header class="main-header">
+
+    <!-- Logo -->
+    <a href="#" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini">P.A.</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">Panel Admin</span>
+    </a>
+
     <!-- Navigation-->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -11,21 +20,18 @@
             <ul class="nav navbar-nav">
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
-                    <!-- Menu Toggle Button -->
+                    <!-- Menu Toggle Button --> <!-- TODO : il doit manquer un JS, le dropdown fonctionne pas ici !! -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="" class="user-image" alt="User Image"> <!-- TODO url('img/profil-default.png') -->
+                        <img src="../assets/img/admin/profil-default.png" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">TODO</span> <!-- Auth::user()->nom!!}&nbsp {!!Auth::user()->prenom -->
+                        <span class="hidden-xs"><?php echo $_SESSION['login'] ?></span> <!-- Auth::user()->nom!!}&nbsp {!!Auth::user()->prenom -->
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="" class="img-circle" alt="User Image"> <!-- TODO url('img/profil-default.png') -->
-
-                            <p>
-                                TODO <!-- Auth::user()->nom et Auth::user()->prenom --> 
-                            </p>
+                            <img src="../assets/img/admin/profil-default.png" class="img-circle" alt="User Image"> 
+                            <p><?php echo $_SESSION['login'] ?></p>
                         </li>
                         <!-- Menu Body -->
 
@@ -53,10 +59,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="" class="img-circle" alt="User Image"> <!-- TODO url('img/profil-default.png') -->
+                <img src="../assets/img/admin/profil-default.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>TODO</p> <!-- Auth::user()->nom et Auth::user()->prenom -->
+                <p><?php echo $_SESSION['login'] ?></p>
             </div>
         </div>
 
@@ -77,6 +83,19 @@
         <ul class="sidebar-menu">
             <li class="header">Menu principal</li>
             <!-- Optionally, you can add icons to the links -->
+            <li class="treeview">
+                <a href="#"><i class="fa fa-list-alt"></i> <span>Les CV</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Ajouter</a></li> <!-- TODO route("article.create") -->
+                    <li><a href="#">Administrer</a></li> <!-- TODO route("article.index") -->
+                </ul>	
+
+            </li>
+
             <li class="treeview">
                 <a href="#"><i class="fa fa-list-alt"></i> <span>Expérience</span>
                     <span class="pull-right-container">
@@ -123,7 +142,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Ajouter</a></li> <!-- TODO route("article.create") -->
+                    <li><a href="../public/admin_hobbie_create.php">Ajouter</a></li>
                     <li><a href="#">Administrer</a></li> <!-- TODO route("article.index") -->
                 </ul>	
 
