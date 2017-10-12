@@ -22,6 +22,7 @@ and open the template in the editor.
     <?php
     require 'pdo/pdo.php';
     session_start();
+      
     if(isset($_GET["action"]))
     {
         $action = $_GET["action"];
@@ -31,6 +32,7 @@ and open the template in the editor.
             $res = login($_POST['login'], $_POST['pwd']);
             if($res==1)
             {
+                cookie($_POST['login']);
                 $_SESSION['login'] = $_POST['login'];
                 header('Location: public/home.php');
             } 
@@ -45,5 +47,6 @@ and open the template in the editor.
             break;
         }
     }
+
     ?>
 </html>
